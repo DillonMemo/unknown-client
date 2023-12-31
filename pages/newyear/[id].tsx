@@ -83,7 +83,13 @@ const UsersDetail = ({ item, errors }: Props) => {
                     <div className="dots dot8"></div>
                 </div>
                 <div className="content">
-                    <h1>Best wishes!</h1>
+                    <picture>
+                        <img
+                            style={{ width: "90%" }}
+                            src="../../static/images/newyeargif.gif"
+                            alt="gif"
+                        />
+                    </picture>
                     <div className="dots dot1"></div>
                     <div className="dots dot2"></div>
                     <div className="dots dot3"></div>
