@@ -1,13 +1,25 @@
-import Link from 'next/link'
-import Layout from '../components/Layout'
+import styled from "styled-components";
 
-const IndexPage = () => (
-  <Layout title="Home | Next.js + TypeScript Example">
-    <h1>Hello Next.js 👋</h1>
-    <p>
-      <Link href="/about">About</Link>
-    </p>
-  </Layout>
-)
+const IndexPage = () => {
+    return (
+        <Wrapper>
+            <div className="404">404 Not Found</div>
+        </Wrapper>
+    );
+};
+const Wrapper = styled.main`
+    width: 100%;
+    height: 100vh;
 
-export default IndexPage
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .\404 {
+        color: black;
+        font-size: 50px;
+        margin: 0;
+    }
+`;
+
+export default IndexPage;
