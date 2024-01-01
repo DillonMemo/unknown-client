@@ -34,7 +34,7 @@ const UsersDetail = ({ item, errors }: Props) => {
         }
     }, []);
     return (
-        <Layout title={item.title}>
+        <Layout title={item.title} description={item.description}>
             <NewYearCard>
                 <div className="back"></div>
                 <div className="front">
@@ -90,7 +90,7 @@ const UsersDetail = ({ item, errors }: Props) => {
                         </picture>
                     ) : (
                         <div>
-                            <h1>Best wishes!</h1>
+                            <span>{item.text}</span>
                         </div>
                     )}
                     <div className="dots dot1"></div>
