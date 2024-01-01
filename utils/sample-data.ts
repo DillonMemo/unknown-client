@@ -45,4 +45,11 @@ export const sampleUserData: NewYear[] = [
         description,
         text: "홍인이형 23년은 좋은 일만 기억하고, 새해는 복 많이 받고 하는 일 다 잘되기를!!",
     },
+    {
+        id: Buffer.from("예서이모").toString("base64"),
+        name: "예서이모",
+        title: "예서이모 새해 복 많이 받으세요~",
+        description,
+        text: "이모 평소에 연락 자주 못줘서 미안해요 :(\n23년 한 해 행복한 기억만 남기시고, 갑진년 모든 일 다 잘되는 한 해 되세요~",
+    },
 ];
