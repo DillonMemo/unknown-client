@@ -31,4 +31,18 @@ export const sampleUserData: NewYear[] = [
         description,
         text: "엄마한테 누구보다 잘해주고 자주 가서 효도도 하고 해야 하는데.. 그렇지 못해 미안해요😭\n새해는 꼭 방문!!하고 23년도는 좋은 기억만 남기고 새해 복 많이 받아요~\n올해는 건강하고 운동도 열심히 해보기!!",
     },
+    {
+        id: Buffer.from("김예승").toString("base64"),
+        name: "김예승",
+        title: "예승이형 새해 뽁!!",
+        description,
+        text: "예승이형 23년은 좋은 일만 기억하고, 새해는 복 많이 받고 하는 일 다 잘되기를!!",
+    },
+    {
+        id: Buffer.from("임홍인").toString("base64"),
+        name: "임홍인",
+        title: "홍인이형 새해 뽁!! 받으숑",
+        description,
+        text: "홍인이형 23년은 좋은 일만 기억하고, 새해는 복 많이 받고 하는 일 다 잘되기를!!",
+    },
 ];
