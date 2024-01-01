@@ -52,4 +52,11 @@ export const sampleUserData: NewYear[] = [
         description,
         text: "이모 평소에 연락 자주 못줘서 미안해요 :(\n23년 한 해 행복한 기억만 남기시고, 갑진년 모든 일 다 잘되는 한 해 되세요~",
     },
+    {
+        id: Buffer.from("큰아빠").toString("base64"),
+        name: "큰아빠",
+        title: "큰아빠 Happy new year~ 🎉",
+        description,
+        text: "23년 행복한 기억만 남기시고, 새해복 많이 받으세요!!\n24년에는 한번 더 다같이 놀러가서 밥도 먹고 해요.",
+    },
 ];
