@@ -4,6 +4,7 @@ import { NewYear } from "../../interfaces";
 import { sampleUserData } from "../../utils/sample-data";
 import styled, { keyframes } from "styled-components";
 import { useEffect } from "react";
+import Layout from "../../components/Layout";
 
 type Props = {
     item?: NewYear;
@@ -12,11 +13,7 @@ type Props = {
 
 const UsersDetail = ({ item, errors }: Props) => {
     if (errors) {
-        return (
-            <Wrapper>
-                <div className="404">404 Not Found</div>
-            </Wrapper>
-        );
+        return <div className="404">404 Not Found</div>;
     }
 
     useEffect(() => {
@@ -37,7 +34,7 @@ const UsersDetail = ({ item, errors }: Props) => {
         }
     }, []);
     return (
-        <Wrapper>
+        <Layout title={item.title}>
             <NewYearCard>
                 <div className="back"></div>
                 <div className="front">
@@ -83,13 +80,19 @@ const UsersDetail = ({ item, errors }: Props) => {
                     <div className="dots dot8"></div>
                 </div>
                 <div className="content">
-                    <picture>
-                        <img
-                            style={{ width: "90%" }}
-                            src="../../static/images/newyeargif.gif"
-                            alt="gif"
-                        />
-                    </picture>
+                    {item.name === "All" ? (
+                        <picture>
+                            <img
+                                style={{ width: "90%" }}
+                                src="../../static/images/newyeargif.gif"
+                                alt="gif"
+                            />
+                        </picture>
+                    ) : (
+                        <div>
+                            <h1>Best wishes!</h1>
+                        </div>
+                    )}
                     <div className="dots dot1"></div>
                     <div className="dots dot2"></div>
                     <div className="dots dot3"></div>
@@ -102,26 +105,11 @@ const UsersDetail = ({ item, errors }: Props) => {
                     <div className="dots dot10"></div>
                 </div>
             </NewYearCard>
-        </Wrapper>
+        </Layout>
     );
 };
 
 export default UsersDetail;
-
-const Wrapper = styled.main`
-    width: 100%;
-    height: 100vh;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    .\404 {
-        color: black;
-        font-size: 50px;
-        margin: 0;
-    }
-`;
 
 const firework = keyframes`
     from {
@@ -386,10 +374,8 @@ const NewYearCard = styled.div`
 export const getStaticPaths: GetStaticPaths = async () => {
     // Get the paths we want to pre-render based on users
     const paths = sampleUserData.map((user) => ({
-        params: { id: user.id.toString() },
+        params: { id: user.id },
     }));
-    console.log("staticPaths", paths);
-    debugger;
 
     // We'll pre-render only these paths at build time.
     // { fallback: false } means other routes should 404.
@@ -401,10 +387,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
 // direct database queries.
 export const getStaticProps: GetStaticProps = async ({ params }) => {
     try {
-        console.log("static props", params);
         debugger;
         const id = params?.id;
-        const item = sampleUserData.find((data) => data.id === Number(id));
+        console.log("1", id);
+        const item = sampleUserData.find((data) => data.id === id);
         // By returning { props: item }, the StaticPropsDetail component
         // will receive `item` as a prop at build time
         return { props: { item } };

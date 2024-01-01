@@ -5,7 +5,9 @@
 // import { User } from 'path/to/interfaces';
 
 export type NewYear = {
-    id: number;
+    id: string;
     name: string;
+    title: string;
+    description: string;
     text: string;
 };
