@@ -81,15 +81,13 @@ const UsersDetail = ({ item, errors }: Props) => {
                 </div>
                 <div className="content">
                     {item.name === "All" ? (
-                        <picture>
-                            <img
-                                style={{ width: "90%" }}
-                                src="../../static/images/newyeargif.gif"
-                                alt="gif"
-                            />
-                        </picture>
+                        <div className="text-content">
+                            <picture>
+                                <img src="../../static/images/newyeargif.gif" alt="gif" />
+                            </picture>
+                        </div>
                     ) : (
-                        <div>
+                        <div className="text-content">
                             <span>{item.text}</span>
                         </div>
                     )}
@@ -131,8 +129,6 @@ const dots = keyframes`
 `;
 
 const NewYearCard = styled.div`
-    @import url("https://fonts.googleapis.com/css?family=Oswald:600");
-
     margin: 0 1rem;
     width: 100%;
     height: 500px;
@@ -173,7 +169,6 @@ const NewYearCard = styled.div`
         transform-style: preserve-3d;
 
         .textWrapper {
-            font-family: "Oswald", sans-serif;
             width: 100%;
             z-index: 1;
             position: relative;
@@ -290,9 +285,20 @@ const NewYearCard = styled.div`
         display: flex;
         align-items: center;
         justify-content: center;
+        .text-content {
+            margin: 0 1rem;
+            font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont,
+                system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo",
+                "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji",
+                "Segoe UI Symbol", sans-serif;
+
+            span {
+                white-space: pre-line;
+            }
+        }
         h1 {
             padding: 20px 40px;
-            font-family: "Oswald", sans-serif;
+
             z-index: 1;
         }
         .dot4 {
@@ -320,7 +326,7 @@ const NewYearCard = styled.div`
             width: 10px;
             height: 10px;
             border-radius: 100%;
-            background-color: $green;
+            background-color: #0dc200;
             position: absolute;
             top: 0;
             transition: all 2.7s ease-in-out;
@@ -376,6 +382,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     const paths = sampleUserData.map((user) => ({
         params: { id: user.id },
     }));
+    console.log("t1", sampleUserData);
 
     // We'll pre-render only these paths at build time.
     // { fallback: false } means other routes should 404.
@@ -387,9 +394,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 // direct database queries.
 export const getStaticProps: GetStaticProps = async ({ params }) => {
     try {
-        debugger;
         const id = params?.id;
-        console.log("1", id);
         const item = sampleUserData.find((data) => data.id === id);
         // By returning { props: item }, the StaticPropsDetail component
         // will receive `item` as a prop at build time

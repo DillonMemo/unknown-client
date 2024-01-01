@@ -27,7 +27,10 @@ export const GlobalStyles = createGlobalStyle`
       color: #C5C5C5 !important;
     }
     body {
-        font-family: 'Montserrat', 'Noto Sans KR', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont,
+                system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo",
+                "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji",
+                "Segoe UI Symbol", sans-serif;
         overscroll-behavior: auto;
         user-select: none;
         /* transition: background 0.2s ease-in, color 0.2s ease-in; */

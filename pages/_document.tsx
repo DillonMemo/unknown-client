@@ -18,6 +18,12 @@ export default class MyDocument extends Document {
                 ...initialProps,
                 styles: (
                     <>
+                        <link
+                            rel="stylesheet"
+                            as="style"
+                            crossOrigin="anonymous"
+                            href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+                        />
                         {initialProps.styles}
                         {sheet.getStyleElement()}
                     </>
